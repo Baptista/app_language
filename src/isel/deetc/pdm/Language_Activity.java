@@ -61,9 +61,13 @@ public class Language_Activity extends Activity {
         }     
         
         sharedpreference = PreferenceManager.getDefaultSharedPreferences(this);
+        String afterbutton = sharedpreference.getString("edittextonconfig", "HELLO WORD");
+        TextView txtview = (TextView) findViewById(R.id.textView1);
+        txtview.setText(afterbutton);
         
-        //sharedpreference.registerOnSharedPreferenceChangeListener(this);
-
+        
+        
+        
     }      
     
     
@@ -79,10 +83,12 @@ public class Language_Activity extends Activity {
     	Log.d("DEBUG", "onConfigurationChanged called");
     }
     
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	MenuInflater menuinflater = this.getMenuInflater();
     	menuinflater.inflate(R.menu.language_, menu);
+    	
     	return true;
     }
     
@@ -99,6 +105,7 @@ public class Language_Activity extends Activity {
     		case R.id.item4:
     			Intent intent = new Intent(this, Help.class);
     			startActivity(intent);
+    			return true;
     		case R.id.item2:
     			startActivity(new Intent(this , Prefs_Activity.class));
     			return true;
