@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <string name="app_name">app_linguaguem</string>
+    <string name="action_settings">opçoes</string>
+    <string name="hello_world">Ola mundo!</string>
+</resources>
