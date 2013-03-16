@@ -1,9 +1,11 @@
 package isel.deetc.pdm;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.util.Log;
 import android.view.Menu;
@@ -11,12 +13,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class Language_Activity extends Activity {
 
 	private static int count=0;
-	protected SharedPreferences sharedpreference;
+	public SharedPreferences sharedpreference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +58,15 @@ public class Language_Activity extends Activity {
     				buttonInc.setText(count+"");
     			}
     		});
-        }        
-    }       
+        }     
+        
+        sharedpreference = PreferenceManager.getDefaultSharedPreferences(this);
+        
+        //sharedpreference.registerOnSharedPreferenceChangeListener(this);
+
+    }      
+    
+    
     @Override
     protected void onDestroy() {
     	super.onDestroy();
@@ -96,4 +106,5 @@ public class Language_Activity extends Activity {
     	}
     	
     }
+
 }
